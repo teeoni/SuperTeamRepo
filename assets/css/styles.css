@@ -1,11 +1,13 @@
+/* bulma and font import  */
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
 @import "https://fonts.google.com/specimen/Rouge+Script";
 
 body {
-    display: flex;
     margin: 0;
+    background-color: #fff897;
 }
 
+/* header container styling */
 .head {
     font-family: "Sofia", sans-serif;
     padding: 20px;
@@ -23,8 +25,10 @@ body {
     border: 1px solid #df8d08;
 }
 
+/* beer nav bar styling */
 .container {
     background-color: #df8d08;
+    width: 450px;
 }
 
 .hr, .bar-options {
@@ -32,12 +36,21 @@ body {
     margin: 0;
     padding: 10px;
     background-color: #d08c47;
-    flex-direction: row;
-    justify-content: right;
+    flex-direction: row-reverse;
+    justify-content: left;
 }
 
+/* search button styling */
 .button {
     margin: 5;
     padding: 10px;
     background-color: transparent;
+}
+
+/* brewery deals button styling */
+.jebait {
+    margin: auto;
+    padding: 15px;
+    text-align: center;
+    background-color: rgb(73, 52, 10);
 }
