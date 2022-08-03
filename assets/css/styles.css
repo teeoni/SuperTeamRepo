@@ -48,9 +48,13 @@ body {
 }
 
 /* brewery deals button styling */
-.jebait {
-    margin: auto;
-    padding: 15px;
-    text-align: center;
+
+.content{
     background-color: rgb(73, 52, 10);
+    background: cover;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
 }
