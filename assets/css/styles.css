@@ -5,10 +5,11 @@
 body {
     margin: 0;
     background-color: #fff897;
+    opacity: .8;
 }
 
 /* header container styling */
-.head {
+.head, .footer {
     font-family: "Sofia", sans-serif;
     padding: 20px;
     justify-content: center;
@@ -54,7 +55,19 @@ body {
     background: cover;
 }
 
-.row {
+.result {
+    background-image: url("https://www.pngitem.com/middle/TJbJx_beer-png-images-free-beer-pictures-download-beer/");
+    background-repeat: no-repeat;
+    background-size: 500px 500px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-around center;
+    width: 700px;
+    height: 180px;
+}
+
+.column {
+    justify-content: center;
+    align-items: center;
+    border-radius: 7px;
+    border: 1px solid rgb(73, 52, 10);
 }
