@@ -1,51 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>Library of Beer-gress</title>
-</head>
-<body>
-    <header class="head">BreweryMasters</header> 
+  </head>
+  <body>
+    <header class="head">BreweryMasters</header>
     <div class="container">
-        <nav class="column"> 
-            <input id="city-search" class="hr" type="text" placeholder="Search by City!">
-            <input id="postal-search" class="hr" type="text" placeholder="Search by Postal Code!">
-            <select id="" class="bar-options">
-              <option value="" disabled selected>Search by Brewery type</option>
-              <option value="Micro">Micro</option>
-              <option value="Nano">Nano</option>
-              <option value="Bar">Bar</option>
-              <option value="Brewpub">Brewpub</option>
-            </select>
-            <select id="" class="bar-options" >
-              <option value="" disabled selected>Select a search radius</option>
-              <option value="10">10 Miles</option>
-              <option value="15">15 Miles</option>
-              <option value="20">20 Miles</option>
-              <option value="25">25 Miles</option>
-            </select>
-            <button type="button" class="button is-ghost" id="searchBtn">Search</button>
-        </nav>
+      <nav class="column">
+        <input
+          id="city-search"
+          class="hr"
+          type="text"
+          placeholder="Search by City!"
+        />
+        <input
+          id="postal-search"
+          class="hr"
+          type="text"
+          placeholder="Search by Postal Code!"
+        />
+        <select id="" class="bar-options">
+          <option value="" disabled selected>Search by Brewery type</option>
+          <option value="Micro">Micro</option>
+          <option value="Nano">Nano</option>
+          <option value="Bar">Bar</option>
+          <option value="Brewpub">Brewpub</option>
+        </select>
+        <select id="" class="bar-options">
+          <option value="" disabled selected>Select a search radius</option>
+          <option value="10">10 Miles</option>
+          <option value="15">15 Miles</option>
+          <option value="20">20 Miles</option>
+          <option value="25">25 Miles</option>
+        </select>
+        <button type="button" class="button is-ghost" id="searchBtn">
+          Search
+        </button>
+      </nav>
     </div>
     <div class="section is-large">
-        <div class="row is-gap result">
-            <div class="column">Result</div>
-            <div class="column">Result</div>
-            <div class="column">Result</div>
-        </div>
+      <div class="row is-gap result">
+        <div class="column">Result</div>
+        <div class="column">Result</div>
+        <div class="column">Result</div>
+      </div>
     </div>
-
 
     <script src="./assets/js/script.js"></script>
     <footer class="footer">
-        <div class="content has-text-centered">
-            <a href="https://www.youtube.com/watch?v=AGvrDe3rKxA" target="_blank">Click for Brewery Deals near you!</a>
-        </div>
+      <div class="content has-text-centered">
+        <a href="https://www.youtube.com/watch?v=AGvrDe3rKxA" target="_blank"
+          >Click for Brewery Deals near you!</a
+        >
+      </div>
     </footer>
-</body>
+  </body>
 </html>
