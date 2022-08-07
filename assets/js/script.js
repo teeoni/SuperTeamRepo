@@ -175,7 +175,6 @@ function randomBreweries() {
 }
 
 //Modal
-
 const modalButton = document.querySelector("#modal-btn");
 const modalBg = document.querySelector(".modal-background");
 const modal = document.querySelector(".modal");

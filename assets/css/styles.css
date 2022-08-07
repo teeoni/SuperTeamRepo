@@ -52,12 +52,6 @@ body {
   font-weight: bold;
 }
 
-.section.is-medium {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
 .hr,
 .bar-options {
   margin: 0;
@@ -126,5 +120,5 @@ body {
 
 .modal {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: black;
+  border-radius: 10px;
 }
