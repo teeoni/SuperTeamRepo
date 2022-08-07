@@ -42,19 +42,94 @@ document.querySelector('#searchBtn').addEventListener('click',function(){
     console.log(searchRadius);
     var searchInput = [searchCity, searchZipCode, searchBrewType, searchRadius];
     searchFunc(searchInput);
+    //randomeBrewTest();
+    console.log("Search should have fired");
 })
 
 // added test function to search for city and brewery type
 function searchFunc(searchInput){
   fetch(`https://api.openbrewerydb.org/breweries?by_city=${searchInput[0]}&by_type=${searchInput[2]}`)
-  .then((response) => response.json())
-  .then((dataResponse => {
-  console.log(dataResponse);
-  } ));
+  .then(breweries =>{ 
+    return breweries.json();
+  }).then(displayTest);
 }
 
+
+//to test for randomBrewery but turns out it just pumps out celis
+function randomeBrewTest() {
+  fetch("https://api.openbrewerydb.org/breweries/random")
+    .then(brewery =>{
+      return brewery.json();
+    
+    }).then(displayTest);
+    
+    
+
+}
+
+function displayTest(breweries){
+  console.log(breweries); 
+  
+  for(var i = 1; i < 4; i++){
+    if(i === 1) {
+
+        const a = Math.floor(Math.random() * (20-0) +1);
+        
+        card1.querySelector("h1").textContent = breweries[a].name;
+        card1.querySelector("a").textContent = "View their website!";
+        card1.querySelector("a").setAttribute("href", breweries[a].website_url);
+        if(breweries[0].street === null) {
+          card1.querySelector("h3").textContent = "No Address Listed.";
+        }else {
+          card1.querySelector("h3").textContent = breweries[a].street;
+        }
+
+        //insert lat and lons for marker API for the map
+
+
+   }else if(i === 2) {
+
+        const b = Math.floor(Math.random() * (20-0) +1);
+        
+        card2.querySelector("h1").textContent = breweries[b].name;
+        card2.querySelector("a").textContent = "View their website!";
+        card2.querySelector("a").setAttribute("href", breweries[b].website_url);
+        if(breweries[0].street === null) {
+          card2.querySelector("h3").textContent = "No Address Listed.";
+        }else {
+          card2.querySelector("h3").textContent = breweries[b].street;
+        }
+
+         //insert lat and lons for marker API for the map               
+    }else if(i === 3) {
+      
+        const c = Math.floor(Math.random() * (20-0) +1);
+        
+        card3.querySelector("h1").textContent = breweries[c].name;
+        card3.querySelector("a").textContent = "View their website!";
+        card3.querySelector("a").setAttribute("href", breweries[c].website_url);
+        if(breweries[0].street === null) {
+          card3.querySelector("h3").textContent = "No Address Listed.";
+        }else {
+          card3.querySelector("h3").textContent = breweries[c].street;
+        }
+
+        //insert lat and lons for marker API for the map
+
+
+      }
+    }
+    
+  }; 
+    
+
+
+
+
+
+
 // random breweries showing on page load.
-function randomBreweries() {
+/* function randomBreweries() {
   for(var i = 1; i < 4; i++ ) {
     if(i === 1) {
       fetch('https://api.openbrewerydb.org/breweries/random')
@@ -105,7 +180,7 @@ function randomBreweries() {
   }
 
 
-}
+} */
 
-randomBreweries()
+//randomBreweries()
 
