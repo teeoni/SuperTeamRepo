@@ -129,10 +129,10 @@ function displayTest(breweries){
 
 
 // random breweries showing on page load.
-/* function randomBreweries() {
+ function randomBreweries() {
   for(var i = 1; i < 4; i++ ) {
     if(i === 1) {
-      fetch('https://api.openbrewerydb.org/breweries/random')
+      fetch('https://api.openbrewerydb.org/breweries/random', {cache: "no-cache"})
       .then((response) => response.json())
       .then((dataResponse => {
         console.log(dataResponse);
@@ -147,7 +147,7 @@ function displayTest(breweries){
       })); 
  
     }else if(i === 2) {
-      fetch('https://api.openbrewerydb.org/breweries/random')
+      fetch('https://api.openbrewerydb.org/breweries/random', {cache: "no-cache"})
       .then((response) => response.json())
       .then((dataResponse => {
         console.log(dataResponse);
@@ -162,7 +162,7 @@ function displayTest(breweries){
         
       })); 
     }else if(i === 3) {
-      fetch('https://api.openbrewerydb.org/breweries/random')
+      fetch('https://api.openbrewerydb.org/breweries/random', {cache: "no-cache"})
       .then((response) => response.json())
       .then((dataResponse => {
         console.log(dataResponse);
@@ -180,7 +180,7 @@ function displayTest(breweries){
   }
 
 
-} */
+}
 
-//randomBreweries()
+randomBreweries()
 
