@@ -27,7 +27,8 @@ function cardSetup() {
   card3.appendChild(card3NewH3);
 }
 
-cardSetup()
+cardSetup();
+randomBreweries();
 
 
 // added the search button functionality
@@ -56,16 +57,14 @@ function searchFunc(searchInput){
 
 
 //to test for randomBrewery but turns out it just pumps out celis
-function randomeBrewTest() {
-  fetch("https://api.openbrewerydb.org/breweries/random")
-    .then(brewery =>{
-      return brewery.json();
+// function randomeBrewTest() {
+//   fetch("https://api.openbrewerydb.org/breweries/random")
+//     .then(brewery =>{
+//       return brewery.json();
     
-    }).then(displayTest);
+//     }).then(displayTest);
     
-    
-
-}
+// }
 
 function displayTest(breweries){
   console.log(breweries); 
@@ -182,5 +181,5 @@ function displayTest(breweries){
 
 }
 
-randomBreweries()
+
 
