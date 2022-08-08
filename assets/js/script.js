@@ -46,22 +46,42 @@ function cardSetup() {
 
 cardSetup();
 randomBreweries();
+searchRestore();
 
 // added the search button functionality
 document.querySelector("#searchBtn").addEventListener("click", function () {
-  var searchCity = document.querySelector("#city-search").value;
-  console.log(searchCity);
-  var searchZipCode = document.querySelector("#postal-search").value;
-  console.log(searchZipCode);
-  var searchBrewType = document.querySelector("#brewery-type-search").value;
-  console.log(searchBrewType);
-  var searchRadius = document.querySelector("#radius-search").value;
-  console.log(searchRadius);
-  var searchInput = [searchCity, searchZipCode, searchBrewType, searchRadius];
-  findGeo(searchCity);
-  searchFunc(searchInput);
-  //randomeBrewTest();
+    var searchCity = document.querySelector("#city-search").value;
+    console.log(searchCity);
+    var searchZipCode = document.querySelector("#postal-search").value;
+    console.log(searchZipCode);
+    var searchBrewType = document.querySelector("#brewery-type-search").value;
+    console.log(searchBrewType);
+    var searchRadius = document.querySelector("#radius-search").value;
+    console.log(searchRadius);
+    var searchInput = [searchCity, searchZipCode, searchBrewType, searchRadius];
+    localStorage.setItem("savedSearch", JSON.stringify(searchInput));
+    findGeo(searchCity);
+    searchFunc(searchInput);
+    //randomeBrewTest();
+    console.log("Search should have fired");
 });
+
+function searchRestore() {
+  var savedSearch = JSON.parse(localStorage.getItem("savedSearch"));
+  if (savedSearch !== null) {
+    var searchCity = document.querySelector('#city-search');
+    searchCity.value = savedSearch[0];
+    var searchZipCode = document.querySelector('#postal-search');
+    searchZipCode.value = savedSearch[1];
+    var searchBrewType = document.querySelector('#brewery-type-search');
+    searchBrewType.value = savedSearch[2];
+    // Temporarily disabled
+    // var searchRadius = document.querySelector('#radius-search');
+    // searchRadius.value = savedSearch[3];
+  } else {
+    return;
+  }
+}
 
 // added test function to search for city and brewery type
 function searchFunc(searchInput) {
