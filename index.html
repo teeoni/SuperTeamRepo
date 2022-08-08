@@ -17,15 +17,44 @@
     <link rel="stylesheet" href="./assets/css/styles.css" />
 
     <!-- Links for HERE API -->
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
-    type="text/javascript" charset="utf-8"></script>
-    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
-    type="text/javascript" charset="utf-8"></script>
+    <script
+      src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+    <script
+      src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
 
     <title>Library of Beer-gress</title>
   </head>
   <body>
     <header class="head">BreweryMasters</header>
+
+    <!-- Modal -->
+    <button class="button is-dark is is-medium" id="modal-btn">
+      How this site works
+    </button>
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-content has-background-white has-text-black py-5 px-5">
+        <h3 class="title has-text-black pb-3">How to use our site</h3>
+        <p class="subtitle has-text-black pb-2">
+          It's simple! Just enter a city or zip code, tell us which kind of
+          brewery you're looking for, and hit the Search button. You will be
+          given three location choices. All that's left is for you to get there
+          and enjoy some suds. Cheers, and enjoy responsibly!
+        </p>
+        <p class="image">
+          <img
+            src="./assets/img/markus-spiske-IhTPaCjsfR8-unsplash.jpg"
+            alt="two people making a toast with beer"
+          />
+        </p>
+      </div>
+    </div>
     <div class="container">
       <nav class="column">
         <div id="navbar-container" class="navbar-brand">
@@ -71,9 +100,6 @@
 
     <!-- Map intergration via HERE Api -->
     <div style="width: 640px; height: 480px" id="mapContainer"></div>
-
-
-
 
     <script src="./assets/js/script.js"></script>
     <footer class="footer">
