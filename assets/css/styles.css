@@ -122,3 +122,9 @@ body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 10px;
 }
+
+#modal-btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
