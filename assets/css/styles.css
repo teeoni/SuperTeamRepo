@@ -16,8 +16,7 @@ body {
 
 /* header and footer container styling */
 
-.head,
-.footer {
+.head{
     font-family: "Anton", sans-serif;
     justify-content: center;
     flex-direction: row;
@@ -27,6 +26,22 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 300px;
     display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 180px;
+    border: 1px solid #df8d08;
+}
+
+footer {
+    font-family: "Anton", sans-serif;
+    justify-content: center;
+    flex-direction: row;
+    align-items: flex-start;
+    text-align: center;
+    background-image: url("https://img.freepik.com/free-vector/beer-with-bubbles-foam-background_107791-2563.jpg?w=900&t=st=1659406305~exp=1659406905~hmac=3f012552e2f6dd88883d3f94ee6884656d19965b8d4022149315c9272c33a7c9");
+    background-repeat: no-repeat;
+    background-size: 100% 300px;
+    display: flex;
     margin: 0 auto;
     width: 100%;
     height: 180px;
