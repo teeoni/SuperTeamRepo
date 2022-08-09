@@ -16,17 +16,15 @@
     />
     <link rel="stylesheet" href="./assets/css/styles.css" />
 
-    <!-- Links for HERE API -->
-    <script
-      src="https://js.api.here.com/v3/3.1/mapsjs-core.js"
-      type="text/javascript"
-      charset="utf-8"
-    ></script>
-    <script
-      src="https://js.api.here.com/v3/3.1/mapsjs-service.js"
-      type="text/javascript"
-      charset="utf-8"
-    ></script>
+    <!-- Links for map HERE API -->
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" type="text/javascript" charset="utf-8"></script>
+    <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" type="text/javascript" charset="utf-8"></script>
+    <!-- For Marker Function in API -->
+    <link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.1/mapsjs-ui.css" />
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-ui.js"></script>
+    <script type="text/javascript" src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js"></script>
+    <script>window.ENV_VARIABLE = 'developer.here.com'</script><script src='../iframeheight.js'></script></head>
+    
 
     <title>Library of Beer-gress</title>
   </head>
@@ -39,7 +37,7 @@
     </button>
     <div class="modal">
       <div class="modal-background"></div>
-      <div class="modal-content has-background-white has-text-black py-5 px-5">
+      <div class="modal-content has-background-white has-text-black py-5 px-5 hidden">
         <h3 class="title has-text-black pb-3">How to use our site</h3>
         <p class="subtitle has-text-black pb-2">
           It's simple! Just enter a city or zip code, tell us which kind of
@@ -53,6 +51,10 @@
             alt="two people making a toast with beer"
           />
         </p>
+      </div>
+      <!-- for null search -->
+      <div class="notification is-warning hidden" id="nullPrompt">
+        <strong>Search Results Invalid</strong>, please try different search variables.
       </div>
     </div>
     <div class="container">
@@ -99,7 +101,12 @@
     </div>
 
     <!-- Map intergration via HERE Api -->
-    <div style="width: 640px; height: 480px" id="mapContainer"></div>
+    <div id="mapSpot">
+      <div style="width: 640px; height: 480px" id="mapContainer"></div>
+    </div>
+
+
+    
 
     <script src="./assets/js/script.js"></script>
     <footer class="footer">

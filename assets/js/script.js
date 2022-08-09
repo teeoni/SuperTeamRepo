@@ -15,6 +15,18 @@ var cityLon = 0;
 var a = 0;
 var b = 0;
 var c = 0;
+var mapisLive = 0;
+
+/* Create Variables for Marker Tracking */
+var brewALat = 0;
+var brewBLat = 0;
+var brewCLat = 0;
+var brewALon = 0;
+var brewBLon = 0;
+var brewCLon = 0;
+var brewAname = "";
+var brewBname = "";
+var brewCname = "";
 
 var card1 = document.querySelector("#card1");
 var card2 = document.querySelector("#card2");
@@ -71,7 +83,7 @@ function searchFunc(searchInput) {
     .then((breweries) => {
       return breweries.json();
     })
-    .then(displayTest);
+    .then(displayBrews);
 }
 
 //to test for randomBrewery but turns out it just pumps out celis
@@ -84,13 +96,23 @@ function searchFunc(searchInput) {
 
 // }
 
-function displayTest(breweries) {
-  console.log(breweries);
+function displayBrews(breweries) {
+  console.log(breweries.length);
 
+  if(breweries.length == 0){
+    //modal calls here for no results found please try again
+    var nullObj = document.getElementById("nullPrompt");
+    nullObj.classList.remove("hidden");
+    modal.classList.add("is-active");
+
+
+  }else{
   for (var i = 1; i < 4; i++) {
     if (i === 1) {
       a = Math.floor(Math.random() * (20 - 0) + 1);
-
+      if(breweries[a].name == null){
+        i = 0;
+      }else{
       card1.querySelector("h1").textContent = breweries[a].name;
       card1.querySelector("a").textContent = "View their website!";
       card1.querySelector("a").setAttribute("href", breweries[a].website_url);
@@ -99,11 +121,17 @@ function displayTest(breweries) {
       } else {
         card1.querySelector("h3").textContent = breweries[a].street;
       }
+      brewALat = breweries[a].latitude;
+      brewALon = breweries[a].longitude;
+      brewAname = breweries[a].name;
+      }
 
       //insert lat and lons for marker API for the map
     } else if (i === 2) {
       b = Math.floor(Math.random() * (20 - 0) + 1);
-
+      if(breweries[b].name == null && b == a){
+        i = 0;
+      }else{
       card2.querySelector("h1").textContent = breweries[b].name;
       card2.querySelector("a").textContent = "View their website!";
       card2.querySelector("a").setAttribute("href", breweries[b].website_url);
@@ -112,11 +140,17 @@ function displayTest(breweries) {
       } else {
         card2.querySelector("h3").textContent = breweries[b].street;
       }
+      brewBLat = breweries[b].latitude;
+      brewBLon = breweries[b].longitude;
+      brewBname = breweries[b].name;
+      }
 
       //insert lat and lons for marker API for the map
     } else if (i === 3) {
       c = Math.floor(Math.random() * (20 - 0) + 1);
-
+      if(breweries[c].name == null && c == b){
+        i = 0;
+      }else{
       card3.querySelector("h1").textContent = breweries[c].name;
       card3.querySelector("a").textContent = "View their website!";
       card3.querySelector("a").setAttribute("href", breweries[c].website_url);
@@ -125,10 +159,15 @@ function displayTest(breweries) {
       } else {
         card3.querySelector("h3").textContent = breweries[c].street;
       }
-
+      brewCLat = breweries[c].latitude;
+      brewCLon = breweries[c].longitude;
+      brewCname = breweries[c].name;
+      }
+      
+      
       //insert lat and lons for marker API for the map
     }
-  }
+  }}
 }
 
 //Converting City search on webpage to coordinates + save to local storage
@@ -151,43 +190,61 @@ function linkCoord(coordinates) {
   createMap(cityLon, cityLat);
 }
 
+
+/* HERE API FUNCTIONS */
 function createMap(cityLon, cityLat) {
+
+  if(mapisLive == 1){
+    const mapElement = document.getElementById("mapContainer");
+    mapElement.remove();
+    mapisLive = 0;
+  }
+
+
+
+  //Create the div for the map
+  var obj = document.getElementById("mapSpot");
+  var mapObj = document.createElement("div");
+  mapObj.setAttribute("id", "mapContainer");
+  obj.appendChild(mapObj);
+  mapisLive = 1;
+
   // Obtain the default map types from the platform object
-  var maptypes = platform.createDefaultLayers();
+  var defaultLayers = platform.createDefaultLayers();
 
   // Instantiate (and display) the map
   var map = new H.Map(
     document.getElementById("mapContainer"),
-    maptypes.vector.normal.map,
+    defaultLayers.vector.normal.map,
     {
-      zoom: 10,
+      zoom: 11,
       center: { lng: cityLon, lat: cityLat },
     }
   );
 
-  console.log("longitude, latitude: " + longitude + "," + latitude);
+  console.log("Lat and lons for Brewery A:" + brewALat + "," + brewALon);
+  var ui = H.ui.UI.createDefault(map, defaultLayers);
+    // Create an info bubble object at a specific geographic location:
+  var bubbleA = new H.ui.InfoBubble({ lng: brewALon, lat: brewALat }, {
+    content: brewAname
+  });
+
+  var bubbleB = new H.ui.InfoBubble({ lng: brewBLon, lat: brewBLat }, {
+    content: brewBname
+  });
+
+  var bubbleC = new H.ui.InfoBubble({ lng: brewCLon, lat: brewCLat }, {
+    content: brewCname
+  });
+
+    // Add info bubble to the UI:
+  ui.addBubble(bubbleA);
+  ui.addBubble(bubbleB);
+  ui.addBubble(bubbleC);
+
 }
 
-//marker API through HERE
-function addMarkersToMap(breweries) {
-  var markerA = new H.map.Marker({
-    lat: breweries[a].latitude,
-    lng: breweries[a].longitude,
-  });
-  map.addObject(markerA);
 
-  var markerB = new H.map.Marker({
-    lat: breweries[b].latitude,
-    lng: breweries[b].longitude,
-  });
-  map.addObject(markerB);
-
-  var markerC = new H.map.Marker({
-    lat: breweries[c].latitude,
-    lng: breweries[c].longitude,
-  });
-  map.addObject(markerC);
-}
 
 // random breweries showing on page load.
 function randomBreweries() {
@@ -254,13 +311,16 @@ function randomBreweries() {
 const modalButton = document.querySelector("#modal-btn");
 const modalBg = document.querySelector(".modal-background");
 const modal = document.querySelector(".modal");
+const tipPrompt = document.querySelector(".modal-content");
 
 modalButton.addEventListener("click", function () {
+  tipPrompt.classList.remove("hidden");
   modal.classList.add("is-active");
   console.log("modal on");
 });
 
 modalBg.addEventListener("click", function () {
+  tipPrompt.classList.add("hidden");
   modal.classList.remove("is-active");
   console.log("modal off");
 });
