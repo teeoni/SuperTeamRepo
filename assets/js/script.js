@@ -92,10 +92,22 @@ function displayTest(breweries) {
       a = Math.floor(Math.random() * (20 - 0) + 1);
 
       card1.querySelector("h1").textContent = breweries[a].name;
-      card1.querySelector("a").textContent = "View their website!";
-      card1.querySelector("a").setAttribute("href", breweries[a].website_url);
-      card1.querySelector("a").setAttribute('target', '_blank');
-      if (breweries[0].street === null) {
+      // card1.querySelector("a").textContent = "View their website!";
+      // card1.querySelector("a").setAttribute("href", breweries[a].website_url);
+      if (breweries[a].website_url === null) {
+        card1.querySelector("a").textContent = "No Website Listed.";
+        card1.querySelector("a").style.cursor = "default";
+        card1.querySelector("a").style.color = "#363636";
+        card1.querySelector("a").style.pointerEvents = "none";
+      } else {
+        card1.querySelector("a").textContent = "View their website!";
+        card1.querySelector("a").style.cursor = "pointer";
+        card1.querySelector("a").style.color = "#485fc7";
+        card1.querySelector("a").style.pointerEvents = "initial";
+        card1.querySelector("a").setAttribute('target', '_blank');
+        card1.querySelector("a").setAttribute("href", breweries[a].website_url);
+      };
+      if (breweries[a].street === null) {
         card1.querySelector("h3").textContent = "No Address Listed.";
       } else {
         card1.querySelector("h3").textContent = breweries[a].street;
@@ -106,10 +118,22 @@ function displayTest(breweries) {
       b = Math.floor(Math.random() * (20 - 0) + 1);
 
       card2.querySelector("h1").textContent = breweries[b].name;
-      card2.querySelector("a").textContent = "View their website!";
-      card2.querySelector("a").setAttribute("href", breweries[b].website_url);
-      card2.querySelector("a").setAttribute('target', '_blank');
-      if (breweries[0].street === null) {
+      // card2.querySelector("a").textContent = "View their website!";
+      // card2.querySelector("a").setAttribute("href", breweries[b].website_url);
+      if (breweries[b].website_url === null) {
+        card2.querySelector("a").textContent = "No Website Listed.";
+        card2.querySelector("a").style.cursor = "default";
+        card2.querySelector("a").style.color = "#363636";
+        card2.querySelector("a").style.pointerEvents = "none";
+      } else {
+        card2.querySelector("a").textContent = "View their website!";
+        card2.querySelector("a").style.cursor = "pointer";
+        card2.querySelector("a").style.color = "#485fc7";
+        card2.querySelector("a").style.pointerEvents = "initial";
+        card2.querySelector("a").setAttribute('target', '_blank');
+        card2.querySelector("a").setAttribute("href", breweries[b].website_url);
+      };
+      if (breweries[b].street === null) {
         card2.querySelector("h3").textContent = "No Address Listed.";
       } else {
         card2.querySelector("h3").textContent = breweries[b].street;
@@ -120,10 +144,22 @@ function displayTest(breweries) {
       c = Math.floor(Math.random() * (20 - 0) + 1);
 
       card3.querySelector("h1").textContent = breweries[c].name;
-      card3.querySelector("a").textContent = "View their website!";
-      card3.querySelector("a").setAttribute("href", breweries[c].website_url);
-      card3.querySelector("a").setAttribute('target', '_blank');
-      if (breweries[0].street === null) {
+      // card3.querySelector("a").textContent = "View their website!";
+      // card3.querySelector("a").setAttribute("href", breweries[c].website_url);
+      if (breweries[c].website_url === null) {
+        card3.querySelector("a").textContent = "No Website Listed.";
+        card3.querySelector("a").style.cursor = "default";
+        card3.querySelector("a").style.color = "#363636";
+        card3.querySelector("a").style.pointerEvents = "none";
+      } else {
+        card3.querySelector("a").textContent = "View their website!";
+        card3.querySelector("a").style.cursor = "pointer";
+        card3.querySelector("a").style.color = "#485fc7";
+        card3.querySelector("a").style.pointerEvents = "initial";
+        card3.querySelector("a").setAttribute('target', '_blank');
+        card3.querySelector("a").setAttribute("href", breweries[c].website_url);
+      };
+      if (breweries[c].street === null) {
         card3.querySelector("h3").textContent = "No Address Listed.";
       } else {
         card3.querySelector("h3").textContent = breweries[c].street;
@@ -203,14 +239,26 @@ function randomBreweries() {
         .then((dataResponse) => {
           console.log(dataResponse);
           card1.querySelector("h1").textContent = dataResponse[0].name;
-          card1.querySelector("a").textContent = "View their website!";
-          card1.querySelector("a").setAttribute("href", dataResponse[0].website_url);
-          card1.querySelector("a").setAttribute('target', '_blank');
+          // card1.querySelector("a").textContent = "View their website!";
+          // card1.querySelector("a").setAttribute("href", dataResponse[0].website_url);
+          if (dataResponse[0].website_url === null) {
+            card1.querySelector("a").textContent = "No Website Listed.";
+            card1.querySelector("a").style.cursor = "default";
+            card1.querySelector("a").style.color = "#363636";
+            card1.querySelector("a").style.pointerEvents = "none";
+          } else {
+            card1.querySelector("a").textContent = "View their website!";
+            card1.querySelector("a").style.cursor = "pointer";
+            card1.querySelector("a").style.color = "#485fc7";
+            card1.querySelector("a").style.pointerEvents = "initial";
+            card1.querySelector("a").setAttribute('target', '_blank');
+            card1.querySelector("a").setAttribute("href", dataResponse[0].website_url);
+          };
           if (dataResponse[0].street === null) {
             card1.querySelector("h3").textContent = "No Address Listed.";
           } else {
             card1.querySelector("h3").textContent = dataResponse[0].street;
-          }
+          };
         });
     } else if (i === 2) {
       fetch("https://api.openbrewerydb.org/breweries/random", {
@@ -220,14 +268,26 @@ function randomBreweries() {
         .then((dataResponse) => {
           console.log(dataResponse);
           card2.querySelector("h1").textContent = dataResponse[0].name;
-          card2.querySelector("a").textContent = "View their website!";
-          card2.querySelector("a").setAttribute("href", dataResponse[0].website_url,);
-          card2.querySelector("a").setAttribute('target', '_blank');
+          // card2.querySelector("a").textContent = "View their website!";
+          // card2.querySelector("a").setAttribute("href", dataResponse[0].website_url);
+          if (dataResponse[0].website_url === null) {
+            card2.querySelector("a").textContent = "No Website Listed.";
+            card2.querySelector("a").style.cursor = "default";
+            card2.querySelector("a").style.color = "#363636";
+            card2.querySelector("a").style.pointerEvents = "none";
+          } else {
+            card2.querySelector("a").textContent = "View their website!";
+            card2.querySelector("a").style.cursor = "pointer";
+            card2.querySelector("a").style.color = "#485fc7";
+            card2.querySelector("a").style.pointerEvents = "initial";
+            card2.querySelector("a").setAttribute('target', '_blank');
+            card2.querySelector("a").setAttribute("href", dataResponse[0].website_url);
+          };
           if (dataResponse[0].street === null) {
             card2.querySelector("h3").textContent = "No Address Listed.";
           } else {
             card2.querySelector("h3").textContent = dataResponse[0].street;
-          }
+          };
         });
     } else if (i === 3) {
       fetch("https://api.openbrewerydb.org/breweries/random", {
@@ -237,14 +297,24 @@ function randomBreweries() {
         .then((dataResponse) => {
           console.log(dataResponse);
           card3.querySelector("h1").textContent = dataResponse[0].name;
-          card3.querySelector("a").textContent = "View their website!";
-          card3.querySelector("a").setAttribute("href", dataResponse[0].website_url);
-          card3.querySelector("a").setAttribute('target', '_blank');
+          if (dataResponse[0].website_url === null) {
+            card3.querySelector("a").textContent = "No Website Listed.";
+            card3.querySelector("a").style.cursor = "default";
+            card3.querySelector("a").style.color = "#363636";
+            card3.querySelector("a").style.pointerEvents = "none";
+          } else {
+            card3.querySelector("a").textContent = "View their website!";
+            card3.querySelector("a").style.cursor = "pointer";
+            card3.querySelector("a").style.color = "#485fc7";
+            card3.querySelector("a").style.pointerEvents = "initial";
+            card3.querySelector("a").setAttribute('target', '_blank');
+            card3.querySelector("a").setAttribute("href", dataResponse[0].website_url);
+          };
           if (dataResponse[0].street === null) {
             card3.querySelector("h3").textContent = "No Address Listed.";
           } else {
             card3.querySelector("h3").textContent = dataResponse[0].street;
-          }
+          };
         });
     }
   }
