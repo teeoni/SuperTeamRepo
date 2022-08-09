@@ -178,6 +178,7 @@ body {
   height: 480px;
   display: flex;
   align-items: center;
+  margin: auto;
 }
 
 .hidden{
