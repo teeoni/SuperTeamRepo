@@ -4,6 +4,8 @@
 @import "https://fonts.google.com/specimen/Rouge+Script";
 
 body {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   background-color: lightgrey;
   opacity: 0.8;
@@ -16,17 +18,17 @@ body {
 
 /* header and footer container styling */
 
+
 .head,
 .footer {
   font-family: "Anton", sans-serif;
   justify-content: center;
   flex-direction: row;
-  align-items: flex-start;
   text-align: center;
   background-image: url("https://img.freepik.com/free-vector/beer-with-bubbles-foam-background_107791-2563.jpg?w=900&t=st=1659406305~exp=1659406905~hmac=3f012552e2f6dd88883d3f94ee6884656d19965b8d4022149315c9272c33a7c9");
   background-repeat: no-repeat;
   background-size: 100% 300px;
-  display: block;
+  display: flex;
   margin: 0 auto;
   width: 100%;
   height: 180px;
@@ -52,6 +54,16 @@ body {
   font-weight: bold;
 }
 
+#searchBtn:hover {
+  color: rgb(149, 195, 216);
+}
+
+.section.is-medium {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .hr,
 .bar-options {
   margin: 0;
@@ -60,10 +72,9 @@ body {
 }
 
 #navbar-conatiner {
-  justify-content: center;
-  flex-direction: row;
-  align-items: flex-start;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between 10px;
 }
 
 /* search button styling */
@@ -96,7 +107,7 @@ body {
 
 /* results container styling */
 
-.columns .is-variable {
+.columns {
   font-family: "Anton", sans-serif;
   padding: 20px;
   justify-content: center space-around;
@@ -106,6 +117,14 @@ body {
   margin: 0;
   width: 100%;
   height: 80px;
+}
+
+.section .is-large {
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 50px;
+  width: 100px;
 }
 
 .column {
@@ -118,6 +137,31 @@ body {
   border: 3px solid rgb(73, 52, 10);
 }
 
+.columns .is-centered .is-6 {
+  display: flex;
+  justify-content: center;
+}
+
+#card1,
+#card2,
+#card3 {
+  display: flex-end;
+  color: darkgoldenrod;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 3px solid darkslategrey;
+  border-radius: 5px;
+  padding: 40px;
+  margin: 25px;
+  min-height: 175px;
+  min-width: 300px;
+  box-shadow: 0 0 20px black;
+}
+
+.footer {
+  margin-top: auto;
+}
+
 .modal {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   border-radius: 10px;
@@ -127,4 +171,22 @@ body {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+#mapContainer{
+  width: 640px;
+  height: 480px;
+  display: flex;
+  align-items: center;
+}
+
+.hidden{
+  display: none
+}
+
+.mapSpot{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
 }
