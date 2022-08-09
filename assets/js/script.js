@@ -221,14 +221,23 @@ function randomBreweries() {
           console.log(dataResponse);
           card1.querySelector("h1").textContent = dataResponse[0].name;
           card1.querySelector("a").textContent = "View their website!";
-          card1
-            .querySelector("a")
-            .setAttribute("href", dataResponse[0].website_url);
+          card1.querySelector("a").setAttribute("href", dataResponse[0].website_url);
+          if (dataResponse[0].website_url === null) {
+            card1.querySelector("a").textContent = "No Website Listed.";
+            card1.querySelector("a").style.cursor = "default";
+            card1.querySelector("a").style.color = "#363636";
+            card1.querySelector("a").style.pointerEvents = "none";
+          } else {
+            card1.querySelector("a").textContent = "View their website!";
+            card1.querySelector("a").style.cursor = "pointer";
+            card1.querySelector("a").style.color = "#485fc7";
+            card1.querySelector("a").setAttribute("href", dataResponse[0].website_url);
+          };
           if (dataResponse[0].street === null) {
             card1.querySelector("h3").textContent = "No Address Listed.";
           } else {
             card1.querySelector("h3").textContent = dataResponse[0].street;
-          }
+          };
         });
     } else if (i === 2) {
       fetch("https://api.openbrewerydb.org/breweries/random", {
@@ -239,14 +248,23 @@ function randomBreweries() {
           console.log(dataResponse);
           card2.querySelector("h1").textContent = dataResponse[0].name;
           card2.querySelector("a").textContent = "View their website!";
-          card2
-            .querySelector("a")
-            .setAttribute("href", dataResponse[0].website_url);
+          card2.querySelector("a").setAttribute("href", dataResponse[0].website_url);
+          if (dataResponse[0].website_url === null) {
+            card2.querySelector("a").textContent = "No Website Listed.";
+            card2.querySelector("a").style.cursor = "default";
+            card2.querySelector("a").style.color = "#363636";
+            card2.querySelector("a").style.pointerEvents = "none";
+          } else {
+            card2.querySelector("a").textContent = "View their website!";
+            card2.querySelector("a").style.cursor = "pointer";
+            card2.querySelector("a").style.color = "#485fc7";
+            card2.querySelector("a").setAttribute("href", dataResponse[0].website_url);
+          };
           if (dataResponse[0].street === null) {
             card2.querySelector("h3").textContent = "No Address Listed.";
           } else {
             card2.querySelector("h3").textContent = dataResponse[0].street;
-          }
+          };
         });
     } else if (i === 3) {
       fetch("https://api.openbrewerydb.org/breweries/random", {
@@ -257,14 +275,23 @@ function randomBreweries() {
           console.log(dataResponse);
           card3.querySelector("h1").textContent = dataResponse[0].name;
           card3.querySelector("a").textContent = "View their website!";
-          card3
-            .querySelector("a")
-            .setAttribute("href", dataResponse[0].website_url);
+          card3.querySelector("a").setAttribute("href", dataResponse[0].website_url);
+          if (dataResponse[0].website_url === null) {
+            card3.querySelector("a").textContent = "No Website Listed.";
+            card3.querySelector("a").style.cursor = "default";
+            card3.querySelector("a").style.color = "#363636";
+            card3.querySelector("a").style.pointerEvents = "none";
+          } else {
+            card3.querySelector("a").textContent = "View their website!";
+            card3.querySelector("a").style.cursor = "pointer";
+            card3.querySelector("a").style.color = "#485fc7";
+            card3.querySelector("a").setAttribute("href", dataResponse[0].website_url);
+          };
           if (dataResponse[0].street === null) {
             card3.querySelector("h3").textContent = "No Address Listed.";
           } else {
             card3.querySelector("h3").textContent = dataResponse[0].street;
-          }
+          };
         });
     }
   }
