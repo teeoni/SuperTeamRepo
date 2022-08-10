@@ -7,7 +7,7 @@ var platform = new H.service.Platform({
 //Openweather API for latitude and longitude searching
 const geoAPI = {
   key: "f8459d37bbe627c3ff7547e9a64d219d",
-  baseurl: "http://api.openweathermap.org/geo/1.0/direct?q=",
+  baseurl: "https://api.openweathermap.org/geo/1.0/direct?q=",
 };
 
 var cityLat = 0;
